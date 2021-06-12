@@ -2,28 +2,32 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title id="pgtitle">네 번째 차원을 본 사람 | Человек, который «видел» четвертое измерение | The Man Who Saw the Fourth Dimension</title>
+		<title id="pgtitle">#오프닝챌린지 #차별금지법제정하라</title>
 		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
 		<!-- libraries -->
 			<!-- jQuery -->
 			<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 			<!-- vue.js -->
 			<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+			<!-- <script src="https://unpkg.com/vue@next"></script> -->
  
 			<!-- Bootstrap 4 CSS & JavaScript -->
-			<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+			<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 			<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>	
 			
 			<!-- BootstrapVue contents -->
 				<!-- Load required BootstrapVue CSS -->
-				<link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css" />
+				<!-- <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css" /> -->
 				<!-- Load polyfills to support older browsers -->
-				<script src="https://polyfill.io/v3/polyfill.min.js?features=es2015%2CIntersectionObserver" crossorigin="anonymous"></script>
+				<!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=es2015%2CIntersectionObserver" crossorigin="anonymous"></script> -->
 				<!-- Load Vue followed by BootstrapVue -->
-				<script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"></script>
+				<!-- <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"></script> -->
 				<!-- Load the following for BootstrapVueIcons support -->
-				<script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue-icons.min.js"></script>
+				<!-- <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue-icons.min.js"></script> -->
+
+			<!-- clipboard.js -->
+			<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js"></script>
 
 			<!-- multilingual class script. http://koreantypography.org/wp-content/uploads/2016/08/kst_13_8_1_01.pdf.pdf + https://github.com/multilingualjs/multilingual.js -->
 			<!-- <script src="@public/@library/jquery.multilingual.min.js"></script>  -->
@@ -36,7 +40,7 @@
 			-->
 
 		<!-- stylesheets -->
-		<!-- <link rel="stylesheet" href="style-common.css"> -->
+		<link rel="stylesheet" href="style-common.css">
 
 		<!-- typefaces -->
 			<!-- Typeface Source Han Sans KR, Neue Haas Grotesk Display&Text from Adobe Fonts -->
@@ -66,31 +70,40 @@
 			</style>  -->
 	</head>
 
-	<body class="container">	
+	<body class="">	
 		<button id="music-button" type="button" class="btn btn-primary position-fixed" style="right: 50px; bottom: 50px;" 
-			v-bind:class="{ playing: isPlaying }" v-on:click="musicButton-click">
-			music on/off
+			v-bind:class="{ playing: musicProp.isPlaying }" v-on:click="musicButtonClick">
+			{{ musicProp.buttonComp }}
 		</button>
+		<audio src="Opening-Mastered-mp3.mp3" autoplay loop></audio>
 
-		<header id="page-header" style="min-height: 150vh;">
-			<div id="background-container" style="position: sticky; position: -webkit-sticky; top: 0; z-index: -1; height: 100vh;">
-				<video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" style="height: 100vh;">
+		<header id="page-header" class="container-fluid">
+			<div id="background-container">
+				<video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
 					<source src="https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4" type="video/mp4">
 				</video>
 			</div>	
-			<p class="subTitle" style="margin-top: -100vh;">{{ subTitle }}</p>
-			<h1 v-html="hText"></h1>
-			<div id="hookLyrics-arrow"></div>
-			<p v-for="(pText, index) in pTexts" v-html="pText"></p>
+			<div id="header-contents" class="container">
+				<p id="subTitle">{{ subTitle }}</p>
+				<svg id="h1-title" viewbox="0 0 450 180">
+					<text x="0" y="0" >
+							<tspan v-for="(hSvgText, index) in hSvgTexts"
+								v-bind:id="hSvgText.id" v-bind:x="hSvgText.x" v-bind:y="hSvgText.y">{{ hSvgText.text }}</tspan>
+					</text>
+				</svg>
+				<!-- <h1 v-html="hText"></h1> -->
+				<div id="hookLyrics-arrow"></div>
+				<p v-for="(pText, index) in pTexts" v-html="pText" class="hookLyrics"></p>
+			</div>
 		</header>
 
 
-		<div id="music-info">
+		<div id="music-info" class="container">
 			<h2 v-html="hText"></h2>
 			<p v-for="(pText, index) in pTexts" v-html="pText"></p>
 		</div>
 
-		<div id="challenge-intro" class="text-right">
+		<div id="challenge-intro" class="text-right container">
 			<h2 v-html="hText"></h2>
 			<p v-for="(pText, index) in pTexts" v-html="pText"></p>
 			<figure v-for="(img, index) in images" class="figure">
@@ -98,28 +111,30 @@
 				<figcaption class="figure-caption">{{ img.annotation }}</figcaption>
 			</figure>
 		</div>
-		<div id="challenge-manual">
+		<div id="challenge-manual" class="container">
 			<h3 v-html="hText"></h3>
 			<ul>
 				<li v-for="(pText, index) in pTexts" v-html="pText"></p>
 			</ul>
 		</div>
-		<div id="challenge-search">
+		<div id="challenge-search" class="container">
 			<h3 v-html="hText"></h3>
 			<p v-for="(pText, index) in pTexts" v-html="pText"></p>
 			<button v-for="(button, index) in buttons" type="button" class="btn btn-primary" v-bind:class="button.buttonClass">{{ button.buttonName }} 보기</button>
 		</div>
 
-		<div id="assembly-petition" class="text-right">
+		<div id="assembly-petition" class="text-right container">
 			<h2 v-html="hText"></h2>
 			<p v-for="(pText, index) in pTexts" v-html="pText"></p>
 			<button v-for="(button, index) in buttons" type="button" class="btn btn-primary" v-bind:class="button.buttonClass">{{ button.buttonName }}</button>
 		</div>
 
-		<page-footer></page-footer>
+		<page-footer class="container"></page-footer>
 
 		<!-- main vue.js framework -->
-		<script src="main.js"></script>
+		<script src="main-vue.js"></script>
+		<!-- other DOM control javascript -->
+		<script src="dom-control.js"></script>
 	</body>
 </html>
 

@@ -1,0 +1,186 @@
+
+/* 
+	device width distinction - 
+	1024px ~ : Desktop layout
+	768px ~ 1023px : tablet layout
+	~ 767px, (min-aspect-ratio: 1/1) : mobile phone layout, widescreen aspect
+	360px ~ 767px, (max-aspect-ratio: 1/1) : mobile phone layout, portrait aspect
+	~ (320px) ~ 359px : legendary mobile phone layout
+
+	bootstrap 4 width distinction -
+	1200px ~ : eXtraLarge
+	992px ~ 1199px : LarGe
+	768px ~ 991px : MeDium
+	576px ~ 767px : SMall
+	~ 575px : eXtraSmall
+*/
+
+$width-sm: "(min-width: 576px)";
+$width-md: "(min-width: 768px)";
+$width-lg: "(min-width: 992px)";
+$width-xl: "(min-width: 1200px)";
+
+
+/* basic constants */
+
+$ratio-1-12: 8.33333333%;
+$ratio-2-12: 16.66666667%;
+$ratio-3-12: 25%;
+$ratio-4-12: 33.33333333%;
+$ratio-5-12: 41.66666667%;
+$ratio-6-12: 50%;
+$ratio-7-12: 58.33333333%;
+$ratio-8-12: 66.66666667%;
+$ratio-9-12: 75%;
+$ratio-10-12: 83.33333333%;
+$ratio-11-12: 91.66666667%;
+$ratio-12-12: 100%;
+
+$container-padding: 15px;
+
+//$containerWidth-sm: ;
+// $containerWidth-md: 640px;
+// $containerWidth-lg: 848px;
+// $containerWidth-xl: 1032px;
+
+
+/* customising Bootrstrap theme */
+
+.container-fluid, .container-lg, .container-md, .container-sm, .container-xl { padding: 0; }
+
+.row { margin-left: 0; margin-right: 0; }
+
+.col, .col-1, .col-10, .col-11, .col-12, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-auto, .col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-auto, .col-sm, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-auto {
+	padding-left: 0; padding-right: 0; 
+}
+
+
+
+/* ---------- initialize settings ---------- */
+
+
+$textColour: #000000;
+$colour-equalityGreen: #2FC516;
+$colour-white: #ffffff;
+// $background-gradient: linear-gradient(to right, #1c1e1e 0%, #1c1e1e 20%, #2e2e2e 80%, #2e2e2e 100%);
+
+	/* scrollbar configuration - for webkit browsers */
+	::-webkit-scrollbar { width: 0; }
+	div::-webkit-scrollbar { width: 0; }
+	div::-webkit-scrollbar-thumb { 
+		background-color: transparentize(#c1c1c1, 0.75); border-radius: 6px; 	
+		&:hover { background-color: transparentize(#c1c1c1, 0.5); }
+	}
+	/* scrollbar configuration - for Firefox */
+	* { scrollbar-width: none; }
+	div { scrollbar-color: transparentize(#c1c1c1, 0.75) transparent; scrollbar-width: thin; }
+
+
+html {
+	/* 1rem = this size. */
+	font-size: 16px; 
+	@media (min-width: 576px) { font-size: 16px; }
+	@media (min-width: 768px) { font-size: 16px; }
+	@media (min-width: 992px) { font-size: 16px; }
+	@media (min-width: 1200px) { font-size: 16px; }
+	
+	line-height: 1.61;
+	font-style: normal;
+	font-weight: 400;
+	
+	font-family: sans-serif;
+
+	word-break: keep-all;
+	
+	position: relative;
+	overflow-x: hidden;
+}
+body {
+	/* font-family: BlinkMacSystemFont, "Apple SD Gothic Neo", -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans KR", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; */
+	font-family: open-arrow, neue-haas-grotesk-text, BlinkMacSystemFont, "Apple SD Gothic Neo", -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans KR", source-han-sans-korean, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	font-style: normal;
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+	width: 100%;
+	position: relative;
+}
+p {
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+}
+div, input {
+	box-sizing: border-box;
+	background-color: transparent;
+//	position: relative;
+}
+
+*:last-child { margin-bottom: 0 !important }
+
+.container {
+//	width: ;
+//	@media #{$width-sm} { width:  }
+	// @media #{$width-md} { width: $containerWidth-md; }
+	// @media #{$width-lg} { width: $containerWidth-lg; }
+	// @media #{$width-xl} { width: $containerWidth-xl; }
+}
+
+
+
+
+
+
+
+
+/* ---------- typo initializing ---------- */
+
+h2 {
+	color: $colour-white; font-weight: 900; font-size: 30px;
+	-webkit-text-stroke: 1px $textColour; 
+
+	span.hText-bold { font-size: 36px; color: $colour-equalityGreen; text-shadow: none; -webkit-text-stroke: 0px; }
+}
+body.ie h2 { 
+	-webkit-text-stroke: 0px;
+	text-shadow: -1px -1px 0 $textColour, 1px -1px 0 $textColour, -1px 1px 0 $textColour, 1px 1px 0 $textColour; 
+}
+
+h3 { font-weight: 700; font-size: 24px; }
+
+
+/* ---------- header tag ---------- */
+
+#page-header { 
+	min-height: 150vh; 
+
+	#background-container { 
+		position: sticky; position: -webkit-sticky; 
+		top: 0; left: 0; margin-left: -$container-padding; z-index: -1; height: 100vh; 
+		video { height: 100vh; }
+	}
+
+	#header-contents {
+		#subTitle { margin-top: calc(-100vh + #{$container-padding}); color: $colour-white; font-weight: 700; }
+		#h1-title { 
+			text {
+				text-anchor: left; fill: none; stroke-width: 3; stroke: $colour-white; 
+				font-weight: 900; font-family: inherit; 
+				tspan#artist { font-size: 64px; }
+				tspan#music-title { font-size: 82px; }
+			}
+			
+		}
+		.hookLyrics {
+			font-weight: 700;
+			font-size: 32px; line-height: 1.3;
+			color: $colour-equalityGreen;
+			margin-bottom: 1.5em;
+		}
+	}
+
+}
+
+
+/* ---------- challenge DIVs ---------- */
+
+#hashtag-clipboard { 
+}
