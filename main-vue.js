@@ -29,21 +29,28 @@
 
 var musicProp = { 
 	'isPlaying': true, 
+	'musicSrc': "Opening-Mastered-mp3.mp3",
 	'buttonComp': "music off",
 	'playingComp': "music off", 
 	'pausingComp': "music on"
 };
+var musicElement = new Audio( musicProp.musicSrc );
+musicElement.autoplay = true;
+musicElement.loop = true;
+
 var musicButton = new Vue({
 	el: "#music-button", 
-	data () { return { musicProp } }, 
+	data: musicProp, 
 	methods: {
 		turnOnMusic () {
 			this.isPlaying = true;
 			this.buttonComp = this.playingComp;
+			musicElement.play();
 		}, 
 		turnOffMusic () {
 			this.isPlaying = false;
 			this.buttonComp = this.pausingComp;
+			musicElement.pause();
 		},
 		musicButtonClick (event) {
 			if (this.isPlaying) this.turnOffMusic();
@@ -76,13 +83,13 @@ var musicInfo = new Vue({
 		pTexts: [
 			"rkskekfkak<br>asdfasdf",
 			"qkdkdkwkckzk", 
-			`<a data-toggle='collapse' 
-				href='#youtube-music' role='button' aria-expanded='false' aria-controls='collapseExample'>
-				► YouTube에서 보기
+			`<a class='colour-youtube'
+				data-toggle='collapse' href='#youtube-music' role='button' aria-expanded='false' aria-controls='collapseExample'>
+				►→↓ YouTube에서 보기
 			</a>`, 
-			`<a data-toggle='collapse' 
-				href='#full-lyrics' role='button' aria-expanded='false' aria-controls='collapseExample'>
-				► 눌러서 가사 펼쳐 보기
+			`<a class=''
+				data-toggle='collapse' href='#full-lyrics' role='button' aria-expanded='false' aria-controls='collapseExample'>
+				►→↓ 눌러서 가사 펼쳐 보기
 			</a>`, 
 			`<div class="collapse" id="full-lyrics">
 				누구에게나 울어야 하는 날이 있어<br> 내 앞에서만 열리지 않는 문을 만나면 <br> 
@@ -134,12 +141,12 @@ var challengeManual = new Vue({
 	data () { return {
 		hText: "오호, 어떻게 챌린지하면 되나요?",
 		pTexts: [
-			"Open your mind Open the door 가사에 맞춰서<br> 무엇이든 여는 모습을 영상으로 찍어주세요.",
-			"아래의 해시태그를 클릭해서(눌러서) 내용을 미리 복사해두세요.<br> \
-				<button type='button' class='btn btn-primary' \
-					data-toggle='tooltip' data-title='복사했습니다!'\
-					id='hashtag-clipboard' ref='hashtagClipboard' data-clipboard-text='#오프닝챌린지 #차별금지법바로지금'>\
-					#오프닝챌린지 #차별금지법바로지금</button>", 
+			"〈Opening〉 곡의 후렴구 가사<br> “Open your mind Open the door”에 맞춰서<br> 무엇이든 여는 모습을 영상으로 찍어주세요.",
+			`아래의 해시태그를 클릭해서(눌러서) 내용을 미리 복사해두세요.<br> 
+				<button type='button' class='btn btn-primary' 
+					data-toggle='tooltip' data-title='복사했습니다!'
+					id='hashtag-clipboard' ref='hashtagClipboard' data-clipboard-text='#오프닝챌린지 #차별금지법바로지금'>
+					#오프닝챌린지 #차별금지법바로지금</button>`, 
 			"여러분이 촬영한 영상을 해시태그와 함께 여러분의 소셜미디어에 올려주세요.",
 			"Instagram 릴스 또는 TikTok에 올린다면<br> 〈Opening〉 음원을 검색해서 영상에 음악을 직접 입힐 수 있어요."
 		]
@@ -163,11 +170,11 @@ var challengeSearch = new Vue({
 			"그럼요! 차별금지법 제정에 힘을 모으려는 수많은 사람들이 벌써 챌린지에 참여하고 있답니다. <br>여러 소셜 미디어에서 #오프닝챌린지 #차별금지법바로지금 해시태그를 통해 여러분과 함께 릴레이에 참여한 사람들의 모습을 살펴보세요."
 		],
 		buttons: [
-			{ buttonName: 'Instagram', 	buttonClass: "", 	buttonURL: 'https://www.instagram.com'}, 
-			{ buttonName: 'TikTok',		buttonClass: "", 	buttonURL: 'https://www.instagram.com' }, 			
-			{ buttonName: 'Facebook', 	buttonClass: "", 	buttonURL: 'https://www.instagram.com'}, 
-			{ buttonName: 'Twitter', 	buttonClass: "", 	buttonURL: 'https://www.instagram.com'}, 
-			{ buttonName: 'Youtube', 	buttonClass: "", 	buttonURL: 'https://www.instagram.com'}, 
+			{ buttonName: 'Instagram', 	buttonClass: "colour-instagram border-instagram", 	buttonURL: 'https://www.instagram.com'}, 
+			{ buttonName: 'TikTok',		buttonClass: "colour-tiktok border-tiktok", 		buttonURL: 'https://www.instagram.com' }, 			
+			{ buttonName: 'Facebook', 	buttonClass: "colour-facebook border-facebook", 	buttonURL: 'https://www.instagram.com'}, 
+			{ buttonName: 'Twitter', 	buttonClass: "colour-twitter border-twitter", 		buttonURL: 'https://www.instagram.com'}, 
+			{ buttonName: 'Youtube', 	buttonClass: "colour-youtube border-youtube", 		buttonURL: 'https://www.instagram.com'}, 
 		]
 	}}
 });

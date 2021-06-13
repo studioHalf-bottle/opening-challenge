@@ -56,13 +56,31 @@ $container-padding: 15px;
 
 
 
-/* ---------- initialize settings ---------- */
+/* ---------- colour initialize settings ---------- */
 
+$colour-black: #000000;	$colour-equalityGreen: #2FC516;	$colour-white: #ffffff;
 
-$textColour: #000000;
-$colour-equalityGreen: #2FC516;
-$colour-white: #ffffff;
+$colour-1: #26e66c;	$colour-2: #bc90f4;	$colour-3: #f5783c;	$colour-4: #28e3f6;	
+$colour-5: #f2cf37;	$colour-6: #1579ef;	$colour-7: #be966d;	$colour-8: #f579a6;
+
+$colour-instagram: #D91089;	$colour-tiktok: #ffffff;	
+$colour-facebook: #1D5CBA;	$colour-twitter: #4DD3FD;	$colour-youtube: #FE1212; 
+
+$colour-text: $colour-white;
+$colour-background: $colour-black;
 // $background-gradient: linear-gradient(to right, #1c1e1e 0%, #1c1e1e 20%, #2e2e2e 80%, #2e2e2e 100%);
+
+.colour-instagram 	{ color: $colour-instagram; }
+.colour-tiktok 		{ color: $colour-tiktok; }
+.colour-facebook	{ color: $colour-facebook; }
+.colour-twitter		{ color: $colour-twitter; }
+.colour-youtube 	{ color: $colour-youtube; }
+
+.border-instagram 	{ border: 2px solid $colour-instagram; }
+.border-tiktok 		{ border: 2px solid $colour-tiktok; }
+.border-facebook	{ border: 2px solid $colour-facebook; }
+.border-twitter		{ border: 2px solid $colour-twitter; }
+.border-youtube 	{ border: 2px solid $colour-youtube; }
 
 	/* scrollbar configuration - for webkit browsers */
 	::-webkit-scrollbar { width: 0; }
@@ -75,6 +93,10 @@ $colour-white: #ffffff;
 	* { scrollbar-width: none; }
 	div { scrollbar-color: transparentize(#c1c1c1, 0.75) transparent; scrollbar-width: thin; }
 
+
+
+
+/* ---------- HTML initialize settings ---------- */
 
 html {
 	/* 1rem = this size. */
@@ -103,14 +125,19 @@ body {
 	padding: 0 0 0 0;
 	width: 100%;
 	position: relative;
+	background-color: $colour-black;
 }
 p {
-	margin: 0 0 0 0;
+	margin: 0 0 0.75em 0;
 	padding: 0 0 0 0;
+}
+li {
+	margin-bottom: 0.75em;
 }
 div, input {
 	box-sizing: border-box;
 	background-color: transparent;
+	color: $colour-text;
 //	position: relative;
 }
 
@@ -134,20 +161,20 @@ div, input {
 /* ---------- typo initializing ---------- */
 
 h2 {
-	color: $colour-white; font-weight: 900; font-size: 30px;
-	-webkit-text-stroke: 1px $textColour; 
+	color: $colour-background; font-weight: 900; font-size: 36px; margin-top: 3em; 
+	-webkit-text-stroke: 1px $colour-text; 
 
 	span.hText-bold { font-size: 36px; color: $colour-equalityGreen; text-shadow: none; -webkit-text-stroke: 0px; }
 }
 body.ie h2 { 
 	-webkit-text-stroke: 0px;
-	text-shadow: -1px -1px 0 $textColour, 1px -1px 0 $textColour, -1px 1px 0 $textColour, 1px 1px 0 $textColour; 
+	text-shadow: -1px -1px 0 $colour-text, 1px -1px 0 $colour-text, -1px 1px 0 $colour-text, 1px 1px 0 $colour-text; 
 }
 
-h3 { font-weight: 700; font-size: 24px; }
+h3 { font-weight: 700; font-size: 24px; margin-top: 3em; }
 
 
-/* ---------- header tag ---------- */
+/* ---------- HEADER tag ---------- */
 
 #page-header { 
 	min-height: 150vh; 
@@ -159,7 +186,7 @@ h3 { font-weight: 700; font-size: 24px; }
 	}
 
 	#header-contents {
-		#subTitle { margin-top: calc(-100vh + #{$container-padding}); color: $colour-white; font-weight: 700; }
+		#subTitle { margin-top: calc(-100vh + #{$container-padding}); color: $colour-text; font-weight: 700; }
 		#h1-title { 
 			text {
 				text-anchor: left; fill: none; stroke-width: 3; stroke: $colour-white; 
@@ -179,8 +206,31 @@ h3 { font-weight: 700; font-size: 24px; }
 
 }
 
+/* ---------- music-info DIV ----------- */
 
-/* ---------- challenge DIVs ---------- */
-
-#hashtag-clipboard { 
+#music-info {
+	a { color: $colour-text; font-weight: 700; &:hover { color: $colour-text; } }
+	a.colour-youtube { color: $colour-youtube; &:hover { color: $colour-youtube; } }
 }
+
+/* ---------- challenge-intro DIV ---------- */
+
+
+/* ---------- challenge-manual DIV ---------- */
+
+#challenge-manual {
+	#hashtag-clipboard { 
+	}
+}
+
+/* ---------- challenge-search DIV ---------- */
+
+#challenge-search {
+	.btn-socialMedia { 
+		font-weight: 700; border-radius: calc(2.25em/2); background-color: transparent; 
+		margin-right: 1em; 
+		&:hover { color: $colour-equalityGreen; border-color: $colour-equalityGreen; }
+	}
+}
+
+/* ---------- assembly-petition DIV ---------- */

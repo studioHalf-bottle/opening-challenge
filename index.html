@@ -72,10 +72,10 @@
 
 	<body class="">	
 		<button id="music-button" type="button" class="btn btn-primary position-fixed" style="right: 50px; bottom: 50px;" 
-			v-bind:class="{ playing: musicProp.isPlaying }" v-on:click="musicButtonClick">
-			{{ musicProp.buttonComp }}
+			v-bind:class="{ playing: this.isPlaying }" v-on:click="musicButtonClick">
+			{{ this.buttonComp }}
 		</button>
-		<audio src="Opening-Mastered-mp3.mp3" autoplay loop></audio>
+		<!-- <audio src="Opening-Mastered-mp3.mp3" autoplay loop></audio> -->
 
 		<header id="page-header" class="container-fluid">
 			<div id="background-container">
@@ -120,7 +120,7 @@
 		<div id="challenge-search" class="container">
 			<h3 v-html="hText"></h3>
 			<p v-for="(pText, index) in pTexts" v-html="pText"></p>
-			<button v-for="(button, index) in buttons" type="button" class="btn btn-primary" v-bind:class="button.buttonClass">{{ button.buttonName }} 보기</button>
+			<button v-for="(button, index) in buttons" type="button" class="btn btn-socialMedia" v-bind:class="button.buttonClass">{{ button.buttonName }} →</button>
 		</div>
 
 		<div id="assembly-petition" class="text-right container">

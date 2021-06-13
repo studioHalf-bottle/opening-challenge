@@ -26,7 +26,37 @@
   padding-left: 0;
   padding-right: 0; }
 
-/* ---------- initialize settings ---------- */
+/* ---------- colour initialize settings ---------- */
+.colour-instagram {
+  color: #D91089; }
+
+.colour-tiktok {
+  color: #ffffff; }
+
+.colour-facebook {
+  color: #1D5CBA; }
+
+.colour-twitter {
+  color: #4DD3FD; }
+
+.colour-youtube {
+  color: #FE1212; }
+
+.border-instagram {
+  border: 2px solid #D91089; }
+
+.border-tiktok {
+  border: 2px solid #ffffff; }
+
+.border-facebook {
+  border: 2px solid #1D5CBA; }
+
+.border-twitter {
+  border: 2px solid #4DD3FD; }
+
+.border-youtube {
+  border: 2px solid #FE1212; }
+
 /* scrollbar configuration - for webkit browsers */
 ::-webkit-scrollbar {
   width: 0; }
@@ -48,6 +78,7 @@ div {
   scrollbar-color: rgba(193, 193, 193, 0.25) transparent;
   scrollbar-width: thin; }
 
+/* ---------- HTML initialize settings ---------- */
 html {
   /* 1rem = this size. */
   font-size: 16px;
@@ -78,25 +109,31 @@ body {
   margin: 0 0 0 0;
   padding: 0 0 0 0;
   width: 100%;
-  position: relative; }
+  position: relative;
+  background-color: #000000; }
 
 p {
-  margin: 0 0 0 0;
+  margin: 0 0 0.75em 0;
   padding: 0 0 0 0; }
+
+li {
+  margin-bottom: 0.75em; }
 
 div, input {
   box-sizing: border-box;
-  background-color: transparent; }
+  background-color: transparent;
+  color: #ffffff; }
 
 *:last-child {
   margin-bottom: 0 !important; }
 
 /* ---------- typo initializing ---------- */
 h2 {
-  color: #ffffff;
+  color: #000000;
   font-weight: 900;
-  font-size: 30px;
-  -webkit-text-stroke: 1px #000000; }
+  font-size: 36px;
+  margin-top: 3em;
+  -webkit-text-stroke: 1px #ffffff; }
   h2 span.hText-bold {
     font-size: 36px;
     color: #2FC516;
@@ -105,13 +142,14 @@ h2 {
 
 body.ie h2 {
   -webkit-text-stroke: 0px;
-  text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000; }
+  text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff; }
 
 h3 {
   font-weight: 700;
-  font-size: 24px; }
+  font-size: 24px;
+  margin-top: 3em; }
 
-/* ---------- header tag ---------- */
+/* ---------- HEADER tag ---------- */
 #page-header {
   min-height: 150vh; }
   #page-header #background-container {
@@ -146,4 +184,27 @@ h3 {
     color: #2FC516;
     margin-bottom: 1.5em; }
 
-/* ---------- challenge DIVs ---------- */
+/* ---------- music-info DIV ----------- */
+#music-info a {
+  color: #ffffff; }
+  #music-info a:hover {
+    color: #ffffff; }
+
+#music-info a.colour-youtube {
+  color: #FE1212; }
+  #music-info a.colour-youtube:hover {
+    color: #FE1212; }
+
+/* ---------- challenge-intro DIV ---------- */
+/* ---------- challenge-manual DIV ---------- */
+/* ---------- challenge-search DIV ---------- */
+#challenge-search .btn-socialMedia {
+  font-weight: 700;
+  border-radius: calc(2.25em/2);
+  background-color: transparent;
+  margin-right: 1em; }
+  #challenge-search .btn-socialMedia:hover {
+    color: #2FC516;
+    border-color: #2FC516; }
+
+/* ---------- assembly-petition DIV ---------- */
