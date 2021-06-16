@@ -55,26 +55,29 @@
 				})(document);
 			</script>
 			<!-- Open Arrow made by Heeyeun Jung 정희연 -->
-			<!-- <style>
+			<style>
 				@font-face {
 					font-family: 'open-arrow';
 					src: url('@public/fonts/OpenArrow-Regular.eot') format('embedded-opentype'),
-					url('@public/fonts/OpenArrow-Regular.woff2') format('woff2'),
-					url('@public/fonts/OpenArrow-Regular.woff') format('woff'),
-					url('@public/fonts/OpenArrow-Regular.otf') format('opentype'),
-					url('@public/fonts/OpenArrow-Regular.ttf') format('truetype');
+					url('@asset/fonts/OpenArrow-Regular.woff2') format('woff2'),
+					url('@asset/fonts/OpenArrow-Regular.woff') format('woff'),
+					url('@asset/fonts/OpenArrow-Regular.otf') format('opentype'),
+					url('@asset/fonts/OpenArrow-Regular.ttf') format('truetype');
 					font-weight: normal;
 					font-style: normal;
 					unicode-range: U+2190-21ff;
 				}
-			</style>  -->
+			</style> 
 	</head>
 
 	<body class="">	
-		<button id="music-button" type="button" class="btn btn-primary position-fixed" style="right: 50px; bottom: 50px;" 
-			v-bind:class="{ playing: this.isPlaying }" v-on:click="musicButtonClick">
-			{{ this.buttonComp }}
-		</button>
+		<transition name="initial-transition">
+			<button id="music-button" type="button" class="btn" v-on:click="musicButtonClick">
+				<div v-show="this.buttonDescription" id="initialComp" class="text-right">이 버튼을 눌러서<br> 음악을 플레이하세요</div>
+				<!-- <object type="image/svg+xml" v-bind:class="{ playing: this.isPlaying }" v-bind:data="this.dataSVG" id="music-button-icon"></object> -->
+				<img alt="music player button" v-bind:class="{ playing: this.isPlaying }" v-bind:src="this.dataSVG" id="music-button-icon"></object>
+			</button>
+		</transition>
 		<!-- <audio src="Opening-Mastered-mp3.mp3" autoplay loop></audio> -->
 
 		<header id="page-header" class="container-fluid">
@@ -85,14 +88,20 @@
 			</div>	
 			<div id="header-contents" class="container">
 				<p id="subTitle">{{ subTitle }}</p>
-				<svg id="h1-title" viewbox="0 0 450 180">
+				<svg id="h1-title" viewbox="0 0 450 168">
 					<text x="0" y="0" >
 							<tspan v-for="(hSvgText, index) in hSvgTexts"
 								v-bind:id="hSvgText.id" v-bind:x="hSvgText.x" v-bind:y="hSvgText.y">{{ hSvgText.text }}</tspan>
 					</text>
 				</svg>
-				<!-- <h1 v-html="hText"></h1> -->
-				<div id="hookLyrics-arrow"></div>
+				<svg id="hookLyrics-arrow-pillar" preserveAspectRatio="none" width="29" height="63" viewBox="0 0 29 63" xmlns="http://www.w3.org/2000/svg">
+					<path d="M13 63L13 0L16 0L16 63L13 63Z"/>
+				</svg>
+				<svg id="hookLyrics-arrow" width="29" height="32" viewBox="0 0 29 32" xmlns="http://www.w3.org/2000/svg">
+					<path d="M0.446702 16.4551C0.178679 16.7407 -3.2086e-06 17.1155 -3.17115e-06 17.5438C-3.13371e-06 17.9721 0.17868 18.3469 0.446702 18.6325L13.419 31.5538C13.687 31.8215 14.0801 32 14.5089 32C14.9378 32 15.313 31.8215 15.5989 31.5538L28.5533 18.6325C28.8392 18.3469 29 17.9721 29 17.5438C29 16.6871 28.321 16.0089 27.4633 16.0089C27.0345 16.0089 26.6593 16.1695 26.3734 16.4551L16.0099 26.7886L16.0099 1.53486C16.0099 0.678193 15.3309 1.19499e-06 14.4911 1.26841e-06C13.6513 1.34183e-06 12.9723 0.678193 12.9723 1.53486L12.9723 26.7529L2.62661 16.4551C2.35859 16.1696 1.96549 16.0089 1.53666 16.0089C1.10782 16.0089 0.732592 16.1696 0.446702 16.4551Z"/>
+				</svg>
+					
+					
 				<p v-for="(pText, index) in pTexts" v-html="pText" class="hookLyrics"></p>
 			</div>
 		</header>
@@ -100,16 +109,61 @@
 
 		<div id="music-info" class="container">
 			<h2 v-html="hText"></h2>
-			<p v-for="(pText, index) in pTexts" v-html="pText"></p>
+			<p v-for="(pText, index) in pTexts_1" v-html="pText"></p>
+			<p>
+				<a-collapse 
+					class='collapsed colour-youtube' 
+					v-bind:href='"#" + collapseURL[0]' v-bind:aria-controls='collapseURL[0]' 
+					message='YouTube에서 뮤직비디오 보기'>
+				</a-collapse> 
+			</p>
+			<div class="collapse embed-responsive embed-responsive-16by9" id='youtube-music'>
+				<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+			</div>
+			<p>
+				<a class='hyperlink colour-equalityGreen' href='https://www.melon.com/song/detail.htm?songId=1750976#' target='_blank'>Melon에서 듣기</a>
+			</p>
+			<p>
+				<a-collapse 
+					class='collapsed' 
+					v-bind:href='"#" + collapseURL[1]' v-bind:aria-controls='collapseURL[2]' 
+					message='눌러서 가사 펼쳐 보기'>
+				</a-collapse> 
+			</p>
+			<div class="collapse" id="full-lyrics">
+				누구에게나 울어야 하는 날이 있어 <br>내 앞에서만 열리지 않는 문을 만나면 <br>
+				<br>
+				때로는 커서 때로는 작아서 <br>조금 특별한 색깔을 좋아해서 <br>넘지 못 하는 선이 있어 <br>
+				<br>
+				Open your mind, Open the door <br>이제 암호를 정하기로 해 <br>
+				<br>
+				Open your mind, Open the door <br>세 번 노크를 하면 활짝 열어주기로 <br>
+				<br>
+				누구에게나 들려줘야 할 말이 있어 <br>태어난 대로 느끼는 대로 살면 된다고 <br>
+				<br>
+				이건 새로운 시작, 깨질 수 없는 약속 <br>난 너의 믿음을 인정할 테니 <br>너도 내 사랑을 응원해줄래 <br>
+				<br>
+				Open your mind, Open the door <br>이제 암호를 정하기로 해 <br>
+				<br>
+				Open your mind, Open the door <br>세 번 노크를 하면 활짝 열어주기로 <br>
+				<br>
+				세상 모든 사람들이 똑같을 수는 없지만 <br>
+				한 걸음 물러서서 보면 다 같은 밝기로 빛나 <br>
+				<br>
+				Open your mind, Open the door <br>새로운 시작 <br>
+				<br>
+				Open your mind, Open the door <br>깨질 수 없는 약속 <br>
+				<br>
+				Open your mind, Open the door <br>이제 암호를 정하기로 해 <br>
+				<br>
+				Open your mind— <br>Open your mind— Open the door—
+			</div>
+			<p v-for="(pText, index) in pTexts_2" v-html="pText"></p>
 		</div>
 
 		<div id="challenge-intro" class="text-right container">
 			<h2 v-html="hText"></h2>
 			<p v-for="(pText, index) in pTexts" v-html="pText"></p>
-			<figure v-for="(img, index) in images" class="figure">
-				<img v-bind:src="img.src" v-bind:alt="img.annotation" class="figure-img img-fluid"/>
-				<figcaption class="figure-caption">{{ img.annotation }}</figcaption>
-			</figure>
 		</div>
 		<div id="challenge-manual" class="container">
 			<h3 v-html="hText"></h3>
@@ -117,13 +171,21 @@
 				<li v-for="(pText, index) in pTexts" v-html="pText"></p>
 			</ul>
 		</div>
-		<div id="challenge-search" class="container">
+		<div id="challenge-example" class="container">
 			<h3 v-html="hText"></h3>
 			<p v-for="(pText, index) in pTexts" v-html="pText"></p>
-			<button v-for="(button, index) in buttons" type="button" class="btn btn-socialMedia" v-bind:class="button.buttonClass">{{ button.buttonName }} →</button>
+			<figure v-for="(img, index) in images" class="figure">
+				<img v-bind:src="img.src" v-bind:alt="img.annotation" class="figure-img img-fluid"/>
+				<figcaption class="figure-caption">{{ img.annotation }}</figcaption>
+			</figure>
+		</div>
+		<div id="challenge-search" class="text-right container">
+			<h3 v-html="hText"></h3>
+			<p v-for="(pText, index) in pTexts" v-html="pText"></p>
+			<a v-for="(button, index) in buttons" role="button" class="btn btn-socialMedia" v-bind:class="button.buttonClass" v-bind:href="button.buttonURL" target="_blank">{{ button.buttonName }} →</a>
 		</div>
 
-		<div id="assembly-petition" class="text-right container">
+		<div id="assembly-petition" class="container">
 			<h2 v-html="hText"></h2>
 			<p v-for="(pText, index) in pTexts" v-html="pText"></p>
 			<button v-for="(button, index) in buttons" type="button" class="btn btn-primary" v-bind:class="button.buttonClass">{{ button.buttonName }}</button>
