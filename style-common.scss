@@ -71,6 +71,7 @@ $colour-background: $colour-black;
 // $background-gradient: linear-gradient(to right, #1c1e1e 0%, #1c1e1e 20%, #2e2e2e 80%, #2e2e2e 100%);
 
 .colour-equalityGreen { color: $colour-equalityGreen; }
+.colour-background-equalityGreen { background-color: $colour-equalityGreen; }
 
 .colour-instagram 	{ color: $colour-instagram; }
 .colour-tiktok 		{ color: $colour-tiktok; }
@@ -84,6 +85,7 @@ $colour-background: $colour-black;
 .border-facebook	{ border-color: $colour-facebook; }
 .border-twitter		{ border-color: $colour-twitter; }
 .border-youtube 	{ border-color: $colour-youtube; }
+
 
 	/* scrollbar configuration - for webkit browsers */
 	::-webkit-scrollbar { width: 0; }
@@ -104,10 +106,10 @@ $colour-background: $colour-black;
 html {
 	/* 1rem = this size. */
 	font-size: 16px; 
-	@media (min-width: 576px) { font-size: 16px; }
-	@media (min-width: 768px) { font-size: 16px; }
-	@media (min-width: 992px) { font-size: 16px; }
-	@media (min-width: 1200px) { font-size: 16px; }
+	@media (min-width: 576px) { font-size: 18px; }
+	@media (min-width: 768px) { font-size: 20px; }
+	@media (min-width: 992px) { font-size: 22px; }
+	@media (min-width: 1200px) { font-size: 24px; }
 	
 	line-height: 1.61;
 	font-style: normal;
@@ -164,39 +166,70 @@ div, input {
 /* ---------- typo initializing ---------- */
 
 h2 {
-	color: $colour-background; font-weight: 900; font-size: 36px; margin-top: 3em; 
+	color: $colour-background; font-weight: 900; font-size: 2.25rem; margin-top: 3em; 
 	-webkit-text-stroke: 1px $colour-text; 
 
-	span.hText-bold { font-size: 36px; color: $colour-equalityGreen; text-shadow: none; -webkit-text-stroke: 0px; }
+	span.hText-bold { font-size: 2.25rem;; color: $colour-equalityGreen; text-shadow: none; -webkit-text-stroke: 0px; }
 }
 body.ie h2 { 
 	-webkit-text-stroke: 0px;
 	text-shadow: -1px -1px 0 $colour-text, 1px -1px 0 $colour-text, -1px 1px 0 $colour-text, 1px 1px 0 $colour-text; 
 }
 
-h3 { font-weight: 700; font-size: 24px; margin-top: 3em; }
+h3 { font-weight: 700; font-size: 1.5rem; margin-top: 3em; }
 
 span.u { text-decoration: underline; }
 span.b { font-weight: 900; }
-
+span.rufina-stencil { font-family: rufina-stencil; }
 
 /* ---------- #music-button ---------- */
 
 #music-button {
-	position: fixed; right: 1.5rem; bottom: 1.5rem;
-	background-color: transparent; padding: 0; border: 0px;
-	text-align: right; 
+	$button-width: calc(52 * 1rem / 16);
 
-	#initialComp {
-		display: inline-block;
+	position: fixed; right: 1.5rem; bottom: 1.5rem;
+	box-sizing: border-box;
+	background-color: $colour-equalityGreen; padding: 0; 
+	width: $button-width; height: $button-width; 
+	text-align: right; 
+	
+	background-color: $colour-equalityGreen; 
+	border: 2px solid $colour-white; border-radius: calc(#{$button-width} / 2); 
+
+	transition-property: opacity, width, height;
+	transition: 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.6s;
+
+	img { width: calc(48 * 1rem / 16); height: calc(48 * 1rem / 16); }
+
+	&.boom {
+		width: calc(10em + #{$button-width}); 
+		// transition-property: opacity, width, height;
+		transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0s;
 	}
 
-	#music-button-icon { 	
+	&::before {
+		content: ''; font-size: 1rem; line-height: 1.2; font-weight: 700;
 		display: inline-block;
-		width: 48px; height: 48px; 
+		opacity: 0; overflow: hidden; vertical-align: middle; width: 0;
+		transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0s, 
+					width 0s linear 0.6s, height 0s linear 0.6s;
 
-		&.playing { 
-		}
+		color: $colour-text;
+	}
+	&.showDescription::before { 
+		content: '버튼을 눌러서\A 음악을 플레이하세요'; white-space: pre;
+		width: auto; height: calc(1em * 1.2 * 2); display: inline-block; }
+	&.boom::before { 
+		opacity: 1; width: auto; height: calc(1em * 1.2 * 2);
+		transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.6s, 
+					width 0s linear 0.6s, height 0s linear 0.6s; 
+	}
+
+	&.playing {
+		background-color: $colour-white; 
+		border: 2px solid $colour-equalityGreen;
+
+		&::before { color: $colour-equalityGreen; }
 	}
 }
 
@@ -204,13 +237,14 @@ span.b { font-weight: 900; }
 
 #page-header { 
 	min-height: 150vh; 
-	font-size: 32px;
+	font-size: 2rem;
 
 	#background-container { 
 		position: sticky; position: -webkit-sticky; overflow: hidden; 
 		// mix-blend-mode: hard-light;
-		top: 0; left: 0; margin-left: -$container-padding; z-index: -1; height: 100vh; 
-		video { height: 100vh; transform: translateX( calc(-50% + 50vw) ); }
+		top: 0; left: 0; // margin-left: -$container-padding; 
+		z-index: -1; height: 100vh; 
+		video { min-height: 100vh; min-width: 100vw; transform: translateX( calc(-50% + 50vw) ); }
 	}
 
 	#header-contents {
@@ -220,24 +254,25 @@ span.b { font-weight: 900; }
 				text-anchor: left; fill: none; stroke-width: 3; stroke: $colour-white; 
 				font-weight: 900; font-family: inherit; 
 				tspan#artist { font-size: 64px; }
-				tspan#music-title { font-size: 82px; }
+				tspan#music-title { font-size: 82px; font-family: rufina-stencil; }
 			}
-
-			margin-bottom: 2em;
+			margin-bottom: 0.75em;
 			
 		}
 		#hookLyrics-arrow-pillar {
 			$arrow-height: 50vh; $arrow-pillar-height: calc(#{$arrow-height} - 2px);
-			height: $arrow-pillar-height; min-height: 240px;
-			display: block; fill: $colour-white; stroke: $colour-white; stroke-width: '1'; 
+			height: $arrow-pillar-height; min-height: 240px; width: calc(0.7em * 33 / 29);
+			display: block; fill: $colour-white; stroke: $colour-white; stroke-width: 1; 
 		}
 		#hookLyrics-arrow {
-			$viewbox-height: 32px;
-			margin-top: calc(-#{$viewbox-height} + 2px);
-			display: block; fill: $colour-white; stroke: $colour-white; stroke-width: '1';
+			$viewbox-height: 33;
+			height: 0.7em; width: calc(0.7em * 33 / 29);
+			margin-top: calc((-#{$viewbox-height} + 2 + 2) * 0.7 * 1em / 32 );
+			display: block; fill: $colour-white; stroke: $colour-white; stroke-width: 1;
 
-			margin-bottom: 2em;
+			margin-bottom: 0.75em;
 		}
+
 		.hookLyrics {
 			font-weight: 700; line-height: 1.3;
 			color: $colour-equalityGreen;
@@ -263,7 +298,7 @@ span.b { font-weight: 900; }
 		&:hover { color: $colour-youtube; } 
 	}
 
-	div.collapse, div.collapsing { border-left: 1px solid $colour-text; padding-left: 1em; margin-left: 0.5em; margin-bottom: 0.75em; }
+	div.collapse, div.collapsing { border-left: 1px solid $colour-text; padding-left: 1em; margin-left: calc(0.5em - 1px); margin-bottom: 2em; }
 }
 
 /* ---------- challenge-intro DIV ---------- */
@@ -272,7 +307,13 @@ span.b { font-weight: 900; }
 /* ---------- challenge-manual DIV ---------- */
 
 #challenge-manual {
-	ul { padding-inline-start: 1.3em; }
+	ul { padding-inline-start: 1.3em; 
+		a { 
+			color: $colour-text; font-weight: 700; text-decoration: underline;
+			&:hover { color: $colour-text; } 
+			&::before { content: '↧'; margin-right: 0.48em; vertical-align: -0.025em; }
+		 }
+	}
 	#hashtag-clipboard { 
 		font-weight: 700; text-decoration: underline;
 		margin-top: 0.5em;
@@ -292,3 +333,14 @@ span.b { font-weight: 900; }
 }
 
 /* ---------- assembly-petition DIV ---------- */
+
+
+
+/* ---------- FOOTER tag ---------- */
+footer {
+	div.row div { margin-top: 1em; }
+	margin-top: 6em; padding-bottom: 10em;
+}
+
+
+

@@ -39,6 +39,31 @@
 				</script>
 			-->
 
+		<!-- favicons -->
+			<link rel="apple-touch-icon" sizes="180x180" href="./@asset/img/favicon/apple-touch-icon.png">
+			<link rel="icon" type="image/png" sizes="32x32" href="./@asset/img/favicon/favicon-32x32.png">
+			<link rel="icon" type="image/png" sizes="16x16" href="/@asset/img/favicon/favicon-16x16.png">
+			<link rel="manifest" href="./@asset/img/favicon/site.webmanifest">
+			<link rel="mask-icon" href="./@asset/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+			<meta name="msapplication-TileColor" content="#da532c">
+			<meta name="theme-color" content="#ffffff">
+
+
+		<!-- SEO tags. LIVE MODE ONLY. Comment out all of the below if error occurs in your DEV env. -->
+			<meta name="description" content="불투명한 예술 현장에서 오늘을 고민하고, 내일을 실천하는 130여 기획자/창작자들의 가상의 기획(만)을 전시, 발표하는 8일간(7/10-7/18)의 축제의 장.">
+				
+			<meta property="og:type" content="website">
+			<meta property="og:title" content="#오프닝챌린지 #차별금지법제정하라">
+			<meta property="og:description" content="불투명한 예술 현장에서 오늘을 고민하고, 내일을 실천하는 130여 기획자/창작자들의 가상의 기획(만)을 전시, 발표하는 8일간(7/10-7/18)의 축제의 장.">
+			<meta property="og:image" content="https://studiohalf-bottle.github.io/opening-challenge/@asset/img/thumbnail-1200x630@2x.png">
+			<meta property="og:image:alt" content="#오프닝챌린지 #차별금지법제정하라">
+			<meta property="og:locale" content="ko_KR">
+			<meta property="og:site_name" content="#오프닝챌린지 #차별금지법제정하라">
+			<meta property="og:url" content="https://bit.ly/opening">
+			<meta name="twitter:image" content="https://studiohalf-bottle.github.io/opening-challenge/@asset/img/thumbnail-1200x630@2x.png">
+			<meta name="twitter:card" content="summary_large_image">
+		
+
 		<!-- stylesheets -->
 		<link rel="stylesheet" href="style-common.css">
 
@@ -71,19 +96,22 @@
 	</head>
 
 	<body class="">	
-		<transition name="initial-transition">
-			<button id="music-button" type="button" class="btn" v-on:click="musicButtonClick">
-				<div v-show="this.buttonDescription" id="initialComp" class="text-right">이 버튼을 눌러서<br> 음악을 플레이하세요</div>
-				<!-- <object type="image/svg+xml" v-bind:class="{ playing: this.isPlaying }" v-bind:data="this.dataSVG" id="music-button-icon"></object> -->
-				<img alt="music player button" v-bind:class="{ playing: this.isPlaying }" v-bind:src="this.dataSVG" id="music-button-icon"></object>
-			</button>
-		</transition>
+		<button id="music-button" type="button" class="btn" 
+			v-bind:class="{ playing: this.isPlaying, boom: this.buttonBoom, showDescription: this.buttonDescription }" v-on:click="musicButtonClick">
+				<img alt="music player button" v-bind:src="this.dataSVG" id="music-button-icon"/>
+		</button>
 		<!-- <audio src="Opening-Mastered-mp3.mp3" autoplay loop></audio> -->
 
 		<header id="page-header" class="container-fluid">
 			<div id="background-container">
-				<video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
-					<source src="https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4" type="video/mp4">
+				<video class="d-md-none" playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+					<source src="./@asset/video/Opening-MV-official-1by1.9.mp4" type="video/mp4">
+				</video>
+				<video class="d-none d-md-inline d-lg-none" playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+					<source src="./@asset/video/Opening-MV-official-1by1.mp4" type="video/mp4">
+				</video>
+				<video class="d-none d-lg-inline" playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+					<source src="./@asset/video/Opening-MV-official-16by9.mp4" type="video/mp4">
 				</video>
 			</div>	
 			<div id="header-contents" class="container">
@@ -97,7 +125,7 @@
 				<svg id="hookLyrics-arrow-pillar" preserveAspectRatio="none" width="29" height="63" viewBox="0 0 29 63" xmlns="http://www.w3.org/2000/svg">
 					<path d="M13 63L13 0L16 0L16 63L13 63Z"/>
 				</svg>
-				<svg id="hookLyrics-arrow" width="29" height="32" viewBox="0 0 29 32" xmlns="http://www.w3.org/2000/svg">
+				<svg id="hookLyrics-arrow" width="29" height="33" viewBox="0 0 29 33" xmlns="http://www.w3.org/2000/svg">
 					<path d="M0.446702 16.4551C0.178679 16.7407 -3.2086e-06 17.1155 -3.17115e-06 17.5438C-3.13371e-06 17.9721 0.17868 18.3469 0.446702 18.6325L13.419 31.5538C13.687 31.8215 14.0801 32 14.5089 32C14.9378 32 15.313 31.8215 15.5989 31.5538L28.5533 18.6325C28.8392 18.3469 29 17.9721 29 17.5438C29 16.6871 28.321 16.0089 27.4633 16.0089C27.0345 16.0089 26.6593 16.1695 26.3734 16.4551L16.0099 26.7886L16.0099 1.53486C16.0099 0.678193 15.3309 1.19499e-06 14.4911 1.26841e-06C13.6513 1.34183e-06 12.9723 0.678193 12.9723 1.53486L12.9723 26.7529L2.62661 16.4551C2.35859 16.1696 1.96549 16.0089 1.53666 16.0089C1.10782 16.0089 0.732592 16.1696 0.446702 16.4551Z"/>
 				</svg>
 					
@@ -117,10 +145,12 @@
 					message='YouTube에서 뮤직비디오 보기'>
 				</a-collapse> 
 			</p>
-			<div class="collapse embed-responsive embed-responsive-16by9" id='youtube-music'>
-				<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+			<div class="collapse row" id='youtube-music'>
+				<div class="embed-responsive embed-responsive-16by9 col-md-6">
+						<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/SqRnQP7xuSQ" allowfullscreen></iframe>
+				</div>
 			</div>
-			<p>
+			<p style="display: none;">
 				<a class='hyperlink colour-equalityGreen' href='https://www.melon.com/song/detail.htm?songId=1750976#' target='_blank'>Melon에서 듣기</a>
 			</p>
 			<p>
@@ -174,10 +204,18 @@
 		<div id="challenge-example" class="container">
 			<h3 v-html="hText"></h3>
 			<p v-for="(pText, index) in pTexts" v-html="pText"></p>
-			<figure v-for="(img, index) in images" class="figure">
+			<div class="row">
+				<div class="embed-responsive embed-responsive-16by9 col-md-6" id='youtube-manual'>
+					<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/AYiE_eCLTNU" allowfullscreen></iframe>
+				</div>
+				<div class="embed-responsive embed-responsive-16by9 col-md-6" id='youtube-manual'>
+					<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/0QhIJLcEYdQ" allowfullscreen></iframe>
+				</div>
+			<!-- <figure v-for="(img, index) in images" class="figure">
 				<img v-bind:src="img.src" v-bind:alt="img.annotation" class="figure-img img-fluid"/>
 				<figcaption class="figure-caption">{{ img.annotation }}</figcaption>
-			</figure>
+			</figure> -->
+			</div>
 		</div>
 		<div id="challenge-search" class="text-right container">
 			<h3 v-html="hText"></h3>
@@ -188,15 +226,21 @@
 		<div id="assembly-petition" class="container">
 			<h2 v-html="hText"></h2>
 			<p v-for="(pText, index) in pTexts" v-html="pText"></p>
-			<button v-for="(button, index) in buttons" type="button" class="btn btn-primary" v-bind:class="button.buttonClass">{{ button.buttonName }}</button>
+			<!-- <button v-for="(button, index) in buttons" type="button" class="btn" v-bind:class="button.buttonClass">{{ button.buttonName }}</button> -->
 		</div>
 
-		<page-footer class="container"></page-footer>
+		<footer id="page-footer" class="text-center container">
+			<h2 v-html="hText"></h2>
+			<!-- <credit-ele v-for="(creditText, index) in creditTexts" 
+				head="creditText.head" text="creditText.text" class="creditText.class">
+			</credit-ele> -->
+			<div class="row justify-content-center">
+				<div v-for="(credit, index) in credits" v-html="credit.text" v-bind:class="credit.class"></div>
+			</div>
+		</footer>
 
 		<!-- main vue.js framework -->
 		<script src="main-vue.js"></script>
-		<!-- other DOM control javascript -->
-		<script src="dom-control.js"></script>
 	</body>
 </html>
 
