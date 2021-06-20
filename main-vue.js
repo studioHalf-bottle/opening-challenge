@@ -71,16 +71,13 @@ var musicButton = new Vue({
 
 		/* ---------- IE Detection & h2 font polyfill ---------- */
 		var isIE = true;
-		var array = [1, 2, 3];
 		try {
-			for (let x of array) {
-				console.log("not ie");
-			}
+			var a = new RegExp(/foo/ig.flags);
 			isIE = false;
 		} catch (err) {
 			// agent가 look-behind 기능을 지원하지 않는다면, 위 문법을 사용한
 			// RegExp 객체의 생성이 에러를 던질 것이고, isLookBehindSupported는
-			// 여전히 false일 것입니다.
+			// 여전히 false일 것입니다.		
 			$("h2").addClass("ie");
 		}
 		
