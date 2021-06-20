@@ -127,7 +127,7 @@
 				<video id="background-video" playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
 				</video>
 			</div>	
-			<div id="header-contents" class="container">
+			<div id="header-contents" class="container-md">
 				<p id="subTitle">{{ subTitle }}</p>
 				<svg id="h1-title" viewbox="0 0 450 172">
 					<text x="0" y="0" >
@@ -148,7 +148,7 @@
 		</header>
 
 
-		<div id="music-info" class="container">
+		<div id="music-info" class="container-md">
 			<h2 v-html="hText"></h2>
 			<p v-for="(pText, index) in pTexts_1" v-html="pText"></p>
 			<p>
@@ -204,17 +204,17 @@
 			<p v-for="(pText, index) in pTexts_2" v-html="pText"></p>
 		</div>
 
-		<div id="challenge-intro" class="text-right container">
+		<div id="challenge-intro" class="text-right container-md">
 			<h2 v-html="hText"></h2>
 			<p v-for="(pText, index) in pTexts" v-html="pText"></p>
 		</div>
-		<div id="challenge-manual" class="container">
+		<div id="challenge-manual" class="container-md">
 			<h3 v-html="hText"></h3>
 			<ul>
 				<li v-for="(pText, index) in pTexts" v-html="pText"></li>
 			</ul>
 		</div>
-		<div id="challenge-example" class="container">
+		<div id="challenge-example" class="container-md">
 			<h3 v-html="hText"></h3>
 			<p v-for="(pText, index) in pTexts" v-html="pText"></p>
 			<div class="row">
@@ -230,19 +230,19 @@
 			</figure> -->
 			</div>
 		</div>
-		<div id="challenge-search" class="text-right container">
+		<div id="challenge-search" class="text-right container-md">
 			<h3 v-html="hText"></h3>
 			<p v-for="(pText, index) in pTexts" v-html="pText"></p>
 			<a v-for="(button, index) in buttons" role="button" class="btn btn-socialMedia" v-bind:class="button.buttonClass" v-bind:href="button.buttonURL" target="_blank">{{ button.buttonName }} →</a>
 		</div>
 
-		<div id="assembly-petition" class="container">
+		<div id="assembly-petition" class="container-md">
 			<h2 v-html="hText"></h2>
 			<p v-for="(pText, index) in pTexts" v-html="pText"></p>
 			<!-- <button v-for="(button, index) in buttons" type="button" class="btn" v-bind:class="button.buttonClass">{{ button.buttonName }}</button> -->
 		</div>
 
-		<footer id="page-footer" class="text-center container">
+		<footer id="page-footer" class="text-center container-md">
 			<h2 v-html="hText"></h2>
 			<!-- <credit-ele v-for="(creditText, index) in creditTexts" 
 				head="creditText.head" text="creditText.text" class="creditText.class">

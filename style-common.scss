@@ -39,14 +39,14 @@ $ratio-12-12: 100%;
 $container-padding: 15px;
 
 //$containerWidth-sm: ;
-// $containerWidth-md: 640px;
-// $containerWidth-lg: 848px;
-// $containerWidth-xl: 1032px;
+// $containerWidth-md: 732px;
+// $containerWidth-lg: 960px;
+// $containerWidth-xl: 1140px;
 
 
 /* customising Bootrstrap theme */
 
-.container-fluid, .container-lg, .container-md, .container-sm, .container-xl { padding: 0; }
+// .container-fluid, .container-lg, .container-md, .container-sm, .container-xl { padding: 0; }
 
 .row { margin-left: 0; margin-right: 0; }
 
@@ -150,8 +150,8 @@ div, input {
 *:last-child { margin-bottom: 0 !important }
 
 .container {
-//	width: ;
-//	@media #{$width-sm} { width:  }
+	// width: ;
+	// @media #{$width-sm} { width:  }
 	// @media #{$width-md} { width: $containerWidth-md; }
 	// @media #{$width-lg} { width: $containerWidth-lg; }
 	// @media #{$width-xl} { width: $containerWidth-xl; }
@@ -238,6 +238,8 @@ span.rufina-stencil { font-family: rufina-stencil; }
 	min-height: 150vh; 
 	font-size: 2rem;
 
+	padding-left: 0; padding-right: 0; 
+
 	#background-container { 
 		position: sticky; position: -webkit-sticky; overflow: hidden; 
 		// mix-blend-mode: hard-light;
@@ -252,7 +254,13 @@ span.rufina-stencil { font-family: rufina-stencil; }
 	}
 
 	#header-contents {
-		#subTitle { margin-top: calc(-100vh + #{$container-padding}); color: $colour-text; font-size: 1rem; font-weight: 700; }
+
+		#subTitle { 
+			color: $colour-text; font-size: 1rem; font-weight: 700; 
+			margin-top: calc(-100vh + 1.5 * #{$container-padding}); 
+			@media #{$width-md} { margin-top: calc(-100vh + 3 * #{$container-padding}); }
+			@media #{$width-lg} { margin-top: calc(-100vh + 4 * #{$container-padding}); }
+		}
 		#h1-title { 
 			max-width: 1000px; 
 			text {
