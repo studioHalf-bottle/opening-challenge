@@ -45,23 +45,23 @@ var musicButton = new Vue({
 	el: "#music-button", 
 	data: musicProp, 
 	methods: {
-		turnOnMusic () {
+		turnOnMusic: function () {
 			this.isPlaying = true;
 			this.dataSVG = this.playSVG;
 			musicElement.play();
 		}, 
-		turnOffMusic () {
+		turnOffMusic: function () {
 			this.isPlaying = false;
 			this.dataSVG = this.pauseSVG;
 			musicElement.pause();
 		},
-		boomButton () {
+		boomButton: function () {
 			setTimeout( function() { musicProp.buttonBoom = true; }, 1000); 
 			setTimeout( function() { musicProp.buttonDescription = true; }, 1600); 
 			setTimeout( function() { musicProp.buttonBoom = false; }, 5500); 
 			setTimeout( function() { musicProp.buttonDescription = false; }, 6100); 
 		},
-		musicButtonClick (event) {
+		musicButtonClick: function (event) {
 			if (this.isPlaying) this.turnOffMusic();
 			else this.turnOnMusic();
 		}
