@@ -73,7 +73,7 @@ var musicButton = new Vue({
 		isIE = true;
 		try {
 			var array = [1, 2, 3];
-			for (x of array) {
+			for (var x of array) {
 				;
 			}
 			isIE = false;
