@@ -50,7 +50,7 @@ var musicButton = new Vue({
 		// 	setTimeout( this.boomDownButton, 3500);
 		// });
 
-		// background video: width choosing + sticky polyfill
+		/* ---------- background video: width choosing + sticky polyfill ---------- */
 
 		if (window.matchMedia("(min-width: 992px)").matches) {
 			$("#background-video").append("<source src='./@asset/video/Opening-MV-official-16by9.mp4' type='video/mp4'>");
@@ -65,8 +65,24 @@ var musicButton = new Vue({
 			// $("#background-video-1by1, #background-video-16by9").remove();
 		}
 		
-		var elements = $('#background-container');
-		Stickyfill.add(elements)
+		// var elements = $('#background-container');
+		// Stickyfill.add(elements)
+
+
+		/* ---------- IE Detection & h2 font polyfill ---------- */
+		isIE = true;
+		try {
+			var array = [1, 2, 3];
+			for (x of array) {
+			};
+			isIE = false;
+		} catch (err) {
+			// agent가 look-behind 기능을 지원하지 않는다면, 위 문법을 사용한
+			// RegExp 객체의 생성이 에러를 던질 것이고, isLookBehindSupported는
+			// 여전히 false일 것입니다.
+			$("h2").addClass("ie");
+		}
+		
 	}
 });
 
