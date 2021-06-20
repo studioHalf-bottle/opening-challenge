@@ -1,32 +1,3 @@
-
-// Vue.component('main-paragraph', {
-// 	props: ['pTexts'], 
-// 	template: `<p v-for='(pText, index) in pTexts' v-bind:item='pText' v-bind:index='index' v-bind:key='index'></p>`
-// });
-
-
-// Vue.component('h2-section', {
-// 	props: ['h-text', 'p-texts'], 
-// 	template: 
-// 		`<h2>{{ h-text }}</h2>
-// 		<p v-for="(pText, index) in pTexts"><span v-html="pText"></span></p>`
-// 	// data: function() { return { 
-// 	// 			hText: "#오프닝챌린지로 차별금지법 제정을 함께 열어요!",
-// 	// 			pTexts: [
-// 	// 				``,
-// 	// 				``
-// 	// 			]
-// 	// 		}
-// 	// 	}
-// });
-
-
-// Vue.directive('tooltip-button', {
-// 	mounted: function(el) {
-// 		$(el).tooltip();
-// 	}
-// });
-
 var musicProp = { 
 	'isPlaying': false, 
 	'musicSrc': "./@asset/music/Opening-Mastered.mp3",
@@ -121,9 +92,9 @@ var musicInfo = new Vue({
 		'a-collapse': {
 			props: ['class-prop', 'collapseURL', 'aria-controls', 'message'],
 			template: 
-			`<a data-toggle='collapse' role='button' 
-				aria-expanded='false'>{{ message }}
-			</a>`
+			"<a data-toggle='collapse' role='button' \
+aria-expanded='false'>{{ message }}\
+</a>"
 		}
 	},
 	data: {
@@ -162,11 +133,11 @@ var challengeManual = new Vue({
 			"<span class='rufina-stencil'>“Opening”</span> 곡의 후렴구인<br> “Open your mind, Open the door” 가사에 맞춰서<br> <span class='b'>무엇이든 여는 모습</span>을 영상으로 찍어주세요.",
 			"후렴구 부분만 따로 추출한 25초 짜리 음악 파일을 공유할게요. 영상을 찍을 때 쓸 수 있어요. <br><a href='./@asset/music/Opening-shorten.mp3' download>25초 파일 다운로드 받기</a>",
 			"만약 <span class='b colour-tiktok-sub'>TikTok</span>을 쓴다면<br> <span class='rufina-stencil'>“Opening”</span> 음원을 검색해서 영상에 음악을 직접 입힐 수 있어요.", 
-			`아래의 해시태그를 클릭해서(눌러서) 내용을 미리 복사해두세요.<br> 
-				<button type='button' class='btn btn-primary' 
-					data-toggle='tooltip' data-title='복사했습니다!'
-					id='hashtag-clipboard' ref='hashtagClipboard' data-clipboard-text='#오프닝챌린지 #차별금지법바로지금'>
-					#오프닝챌린지 <br>#차별금지법바로지금</button>`, 
+			"아래의 해시태그를 클릭해서(눌러서) 내용을 미리 복사해두세요.<br>\
+<button type='button' class='btn btn-primary'\
+data-toggle='tooltip' data-title='복사했습니다!'\
+id='hashtag-clipboard' ref='hashtagClipboard' data-clipboard-text='#오프닝챌린지 #차별금지법바로지금'>\
+#오프닝챌린지 <br>#차별금지법바로지금</button>", 
 			"촬영한 영상과 함께 위의 해시태그를 여러분의 소셜미디어에 올려주세요.",
 		]
 	}, 
@@ -225,9 +196,9 @@ var challengeManual = new Vue({
 		hText: "맞다, <br><span class='hText-bold'>차별금지법 제정을 위한 국회청원</span>은<br> 잘 되고 있어?",
 		pTexts: [
 			"<span class='b'>성공했어요. 이제는 국회의 시간이에요!</span>",
-			// `<div class="progress">
-			// 	<div class="progress-bar progress-bar-striped" role="progressbar" style="width: 100%" aria-valuenow="100000" aria-valuemin="0" aria-valuemax="100000"></div>
-			// </div>`,
+			// "<div class="progress">\
+			// 	<div class="progress-bar progress-bar-striped" role="progressbar" style="width: 100%" aria-valuenow="100000" aria-valuemin="0" aria-valuemax="100000"></div>\
+			// </div>",
 			"청원 시작 22일 만인 2021년 6월 24일에, 10만 명의 서명이 채워졌어요. <br>이제 이 청원은 국회로 넘어가서 ‘국회 법제사법위원회’라는 상임위원회에서 18명의 국회의원이 논의를 시작해요. <span class='u'>법제사법위원회는 90일 뒤인 9월 12일까지 반드시 심사를 끝내서</span>, 차별금지법을 국회 본회의로 올리거나, 논의하지 않기로 결정한 이유를 알려주게 되어 있어요.", 
 			"차별금지법 제정을 바라는 10만 명의 간절한 뜻이 이뤄지도록, 국회의 시간에도 끝까지 함께 목소리를 내자구요!"
 		],
@@ -238,11 +209,11 @@ var challengeManual = new Vue({
 });
 
 // Vue.component('credit-ele', {
-// 	template: `
-// 		<div v-bind:class="{{ divClass }}">
-// 			<span class="b">{{ head }}</span><br>
-// 			{{ text }}
-// 		</div>`, 
+// 	template: "\
+// 		<div v-bind:class="{{ divClass }}">\
+// 			<span class="b">{{ head }}</span><br>\
+// 			{{ text }}\
+// 		</div>", 
 // 	data: function () {
 // 		return {
 // 			someChildProperty: true
