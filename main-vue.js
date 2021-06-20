@@ -8,7 +8,7 @@ var musicProp = {
 	'dataSVG': './@asset/img/louder-icon.svg'
 };
 var musicElement = new Audio( musicProp.musicSrc );
-musicElement.preload = auto; 
+musicElement.autoplay = false; 
 musicElement.loop = true;
 // musicElement.play();
 
