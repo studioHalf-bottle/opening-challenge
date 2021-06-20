@@ -78,7 +78,7 @@ var musicButton = new Vue({
 			// agent가 look-behind 기능을 지원하지 않는다면, 위 문법을 사용한
 			// RegExp 객체의 생성이 에러를 던질 것이고, isLookBehindSupported는
 			// 여전히 false일 것입니다.		
-			$("h2").addClass("ie");
+			$("body").addClass("ie");
 		}
 		
 	}

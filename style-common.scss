@@ -169,9 +169,10 @@ div, input {
 h2 {
 	color: $colour-background; font-weight: 900; font-size: 2.25rem; margin-top: 3em; 
 	-webkit-text-stroke: 1px $colour-text; 
-	&.ie { -webkit-text-stroke: 0px; color: $colour-h2-ie; }
 	span.hText-bold { font-size: 2.25rem;; color: $colour-equalityGreen; text-shadow: none; -webkit-text-stroke: 0px; }
 }
+body.ie h2 { -webkit-text-stroke: 0px; color: $colour-h2-ie; }
+
 
 h3 { font-weight: 700; font-size: 1.5rem; margin-top: 3em; }
 
