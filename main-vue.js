@@ -267,7 +267,7 @@ var pageFooter= new Vue({
 			{ class: "col-6 col-md-3", 	text: "<span class='b'>믹싱</span><br>송재경" },
 			{ class: "col-6 col-md-3", 	text: "<span class='b'>마스터링</span><br>강은구 @eunstudio" },
 			{ class: "col-6 col-md-3", 	text: "<span class='b'>커버 디자인</span><br>봄밤" },
-			{ class: "col-12", 	text: "<span class='b'>기획, 제작</span><br>오름엔터테인먼트 (대표 최인희)<br>차별금지법제정연대<br>프로젝트퀘스천<br>스튜디오 하프-보틀" }
+			{ class: "col-12", 	text: "<span class='b'>기획, 제작</span><br>오름엔터테인먼트 (대표 최인희)<br>차별금지법제정연대<br>프로젝트퀘스천<br>스튜디오 하프-보틀<br>서정민갑, 윤소라" }
 		]
 	}}
 });
