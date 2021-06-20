@@ -74,7 +74,8 @@ var musicButton = new Vue({
 		try {
 			var array = [1, 2, 3];
 			for (x of array) {
-			};
+				;
+			}
 			isIE = false;
 		} catch (err) {
 			// agent가 look-behind 기능을 지원하지 않는다면, 위 문법을 사용한
