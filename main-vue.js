@@ -70,11 +70,11 @@ var musicButton = new Vue({
 
 
 		/* ---------- IE Detection & h2 font polyfill ---------- */
-		isIE = true;
+		var isIE = true;
+		var array = [1, 2, 3];
 		try {
-			var array = [1, 2, 3];
 			for (let x of array) {
-				;
+				console.log("not ie");
 			}
 			isIE = false;
 		} catch (err) {
