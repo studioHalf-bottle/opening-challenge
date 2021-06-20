@@ -144,14 +144,15 @@ h2 {
   font-size: 2.25rem;
   margin-top: 3em;
   -webkit-text-stroke: 1px #ffffff; }
-  h2.ie {
-    -webkit-text-stroke: 0px;
-    color: #dddddd; }
   h2 span.hText-bold {
     font-size: 2.25rem;
     color: #2FC516;
     text-shadow: none;
     -webkit-text-stroke: 0px; }
+
+body.ie h2 {
+  -webkit-text-stroke: 0px;
+  color: #dddddd; }
 
 h3 {
   font-weight: 700;
