@@ -50,6 +50,8 @@ var musicButton = new Vue({
 		// 	setTimeout( this.boomDownButton, 3500);
 		// });
 
+		// background video: width choosing + sticky polyfill
+
 		if (window.matchMedia("(min-width: 992px)").matches) {
 			$("#background-video").append("<source src='./@asset/video/Opening-MV-official-16by9.mp4' type='video/mp4'>");
 			// $("#background-video-1by1.9, #background-video-1by1").remove();
@@ -62,7 +64,9 @@ var musicButton = new Vue({
 			$("#background-video").append("<source src='./@asset/video/Opening-MV-official-1by1.9.mp4' type='video/mp4'>");
 			// $("#background-video-1by1, #background-video-16by9").remove();
 		}
-		// document.getElementById("background-video").play();
+		
+		var elements = $('#background-container');
+		Stickyfill.add(elements)
 	}
 });
 
