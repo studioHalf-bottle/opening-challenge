@@ -31,6 +31,18 @@
 .colour-background-equalityGreen {
   background-color: #2FC516; }
 
+.colour-1 {
+  color: #26e66c; }
+
+.colour-3 {
+  color: #f5783c; }
+
+.colour-5 {
+  color: #f2cf37; }
+
+.colour-6 {
+  color: #1579ef; }
+
 .colour-instagram {
   color: #D91089; }
 
@@ -143,8 +155,6 @@ h2 {
   -webkit-text-stroke: 1px #ffffff; }
   h2 span.hText-bold {
     font-size: 2.25rem;
-    color: #2FC516;
-    text-shadow: none;
     -webkit-text-stroke: 0px; }
 
 body.ie h2 {
@@ -288,7 +298,6 @@ span.rufina-stencil {
   #page-header #header-contents .hookLyrics {
     font-weight: 700;
     line-height: 1.3;
-    color: #2FC516;
     margin-bottom: 1.5em; }
     #page-header #header-contents .hookLyrics:last-child {
       padding-bottom: 4em; }
@@ -317,6 +326,13 @@ span.rufina-stencil {
   margin-left: calc(0.5em - 1px);
   margin-bottom: 2em; }
 
+#music-info img#music-album-cover {
+  width: 100%;
+  margin-bottom: 2em; }
+  @media (min-width: 576px) {
+    #music-info img#music-album-cover {
+      width: 50%; } }
+
 /* ---------- challenge-intro DIV ---------- */
 /* ---------- challenge-manual DIV ---------- */
 #challenge-manual ul {
@@ -336,10 +352,10 @@ span.rufina-stencil {
   font-weight: 700;
   text-decoration: underline;
   margin-top: 0.5em;
-  background-color: #2FC516;
+  background-color: #1579ef;
   border: 0px; }
   #challenge-manual #hashtag-clipboard:hover {
-    background-color: #2FC516; }
+    background-color: #1579ef; }
 
 /* ---------- challenge-search DIV ---------- */
 #challenge-search .btn-socialMedia {
@@ -352,10 +368,23 @@ span.rufina-stencil {
   margin-left: 1em;
   margin-top: 1em; }
   #challenge-search .btn-socialMedia:hover {
-    color: #2FC516;
-    border-color: #2FC516; }
+    color: #1579ef;
+    border-color: #1579ef; }
 
 /* ---------- assembly-petition DIV ---------- */
+#assembly-petition button {
+  font-weight: 700;
+  border-width: 3px;
+  border-style: solid;
+  border-radius: calc(2.25em/2 + 3px);
+  color: #ffffff;
+  background-color: transparent;
+  margin-top: 1em;
+  border: 3px solid #f2cf37; }
+  #assembly-petition button:hover {
+    color: #1579ef;
+    border-color: #1579ef; }
+
 /* ---------- FOOTER tag ---------- */
 footer {
   margin-top: 6em;

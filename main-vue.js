@@ -83,10 +83,10 @@ var pageHeader = new Vue({
 			{ id: "music-title", 	x: 0, 	y: 148, 	text: "«Opening»" }
 		],
 		pTexts: [
-			"Open your mind<br> Open the door<br> 새로운 시작",
-			"Open your mind<br> Open the door<br> 깨질 수 없는 약속",
-			"Open your mind<br> Open the door<br> 이제 암호를 정하기로 해",
-			"Open your mind<br> 세 번 노크를 하면<br> 활짝 열어주기로"
+			{ text: "Open your mind<br> Open the door<br> 새로운 시작", class: "colour-3" },
+			{ text: "Open your mind<br> Open the door<br> 깨질 수 없는 약속", class: "colour-5" },
+			{ text: "Open your mind<br> Open the door<br> 이제 암호를 정하기로 해", class: "colour-6" },
+			{ text: "Open your mind<br> 세 번 노크를 하면<br> 활짝 열어주기로", class: "colour-1" }
 		]
 	}
 });
@@ -108,7 +108,7 @@ aria-expanded='false'>{{ message }}\
 	data: {
 		collapseURL: ['youtube-music', 'full-lyrics'],
 
-		hText: "지금 들으시는 노래는<br><span class='hText-bold'><span class='u'>9와 숫자들</span>이 부르는<br> <span class='rufina-stencil'>“Opening”</span></span> 입니다.",
+		hText: "지금 들으시는 노래는<br><span class='hText-bold colour-3'><span class='u'>9와 숫자들</span>이 부르는<br> <span class='rufina-stencil'>“Opening”</span></span> 입니다.",
 		pTexts_1: [
 			"<span class='b'><span class='rufina-stencil'>Opening :</span> <br>‘(닫힌 무언가를) 연다는 것’, ‘(무엇인가) 시작되는 첫 부분’</span>",
 			"굳게 잠긴 문 앞에 서 있는 사람들이 있습니다. <br>크기와 모양은 다르지만, 그것은 사실 커다란 하나의 문입니다.", 
@@ -123,7 +123,7 @@ aria-expanded='false'>{{ message }}\
 var challengeIntro = new Vue({
 	el: "#challenge-intro", 
 	data: {
-		hText: "<span class='hText-bold'><span class='u'>#오프닝챌린지</span>로</span><br> 차별금지법 제정을<br> 함께 열어요!",
+		hText: "<span class='hText-bold colour-1'><span class='u'>#오프닝챌린지</span>로</span><br> 차별금지법 제정을<br> 함께 열어요!",
 		pTexts: [
 			"나를 어떻게 볼까 두려워<br> 마음을 닫은 적이 있지 않나요?",
 			"아니요,<br> 세상이 우리 앞의 문을 닫았지요.", 
@@ -196,7 +196,7 @@ var challengeSearch = new Vue({
 var challengeManual = new Vue({
 	el: "#assembly-petition", 
 	data: {
-		hText: "맞다, <br><span class='hText-bold'>차별금지법 제정을 위한 국회청원</span>은<br> 잘 되고 있어?",
+		hText: "맞다, <br><span class='hText-bold colour-5'>차별금지법 제정을 위한 국회청원</span>은<br> 잘 되고 있어?",
 		pTexts: [
 			"<span class='b'>성공했어요. 이제는 국회의 시간이에요!</span>",
 			// "<div class="progress">\
@@ -206,7 +206,7 @@ var challengeManual = new Vue({
 			"차별금지법 제정을 바라는 10만 명의 간절한 뜻이 이뤄지도록, 국회의 시간에도 끝까지 함께 목소리를 내자구요!"
 		],
 		buttons: [
-			{ buttonName: '국회로 올라간 차별금지법 청원 상황 보기', 	buttonClass: "", 	buttonURL: 'https://petitions.assembly.go.kr/status/onGoing/C25F4B51E8D2312DE054A0369F40E84E?fbclid=IwAR0bGjkGjlX9nrynwL68sWyrPbJmPB7K7xEwMnIFGD5WkBYdCapCXzlxBAE'}
+			{ buttonName: '국회로 올라간 차별금지법 청원 상황 보기', 	buttonClass: "", 	buttonURL: 'http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_Z2Q1G0R6R1R4F1Y6J4B3K5E8F5Z9H7'}
 		]
 	}
 });
@@ -227,7 +227,7 @@ var challengeManual = new Vue({
 var pageFooter= new Vue({
 	el: "#page-footer", 
 	data: {
-		hText: "<span class='rufina-stencil'>“Opening”</span>과 <span class='u'>#오프닝챌린지</span>를<br> 함께 제안한 분들이에요.",
+		hText: "<span class='rufina-stencil hText-bold colour-3'>“Opening”</span>과 <span class='u hText-bold colour-5'>#오프닝챌린지</span>를<br> 함께 제안한 분들이에요.",
 		// creditTexts: [
 		// 	{ head: "a1", 	text: "a2", 	href: "a3", 	divClass: "a4" },
 		// 	{ head: "b1", 	text: "b2", 	href: "b3", 	divClass: "b4" },
