@@ -38,17 +38,10 @@ var musicButton = new Vue({
 		}
 	}, 
 	mounted: function () {
-		// $('#music-button').tooltip({ trigger: 'manual' });
-		// setTimeout( function() { $('#music-button').tooltip('show'); }, 2000);
-		// setTimeout( function() { $('#music-button').tooltip('hide'); }, 8000);
 		if (document.readyState === "loading") {  
 			document.addEventListener("DOMContentLoaded", this.boomButton ); 
 		} 
 		else { this.boomButton(); }
-		// document.addEventListener('DOMContentLoaded', function () {
-		// 	setTimeout( this.boomUpButton, 1000); 
-		// 	setTimeout( this.boomDownButton, 3500);
-		// });
 
 		/* ---------- background video: width choosing + sticky polyfill ---------- */
 
@@ -70,16 +63,6 @@ var musicButton = new Vue({
 
 
 		/* ---------- IE Detection & h2 font polyfill ---------- */
-		// var isIE = true;
-		// try {
-		// 	var a = new RegExp(/foo/ig.flags);
-		// 	isIE = false;
-		// } catch (err) {
-		// 	// agent가 look-behind 기능을 지원하지 않는다면, 위 문법을 사용한
-		// 	// RegExp 객체의 생성이 에러를 던질 것이고, isLookBehindSupported는
-		// 	// 여전히 false일 것입니다.		
-		// 	$("body").addClass("ie");
-		// }
 
 		if(document.currentScript === undefined){
 			// IE 에서만 돌아갈 내용
@@ -142,10 +125,10 @@ var challengeIntro = new Vue({
 	data: {
 		hText: "<span class='hText-bold'><span class='u'>#오프닝챌린지</span>로</span><br> 차별금지법 제정을<br> 함께 열어요!",
 		pTexts: [
-			"나를 어떻게 볼까 두려워<br> 나를 닫은 적이 있지 않나요?",
-			"아니요, 나는 닫은 적이 없습니다.<br> 세상이 우리 앞에 문을 닫았습니다.", 
-			"나는 이제 문을 엽니다.<br> 세상의 닫힌 문을 엽니다.<br> 그리고 당신에게 나를 엽니다.", 
-			"평등의 약속, 차별금지법 바로 지금<br> 국회의 닫힌 문을 열어<br> 우리는 약속할 수 있습니다.",
+			"나를 어떻게 볼까 두려워<br> 마음을 닫은 적이 있지 않나요?",
+			"아니요,<br> 세상이 우리 앞의 문을 닫았지요.", 
+			"이제 문을 열어요.<br> 세상의 닫힌 문을 열어요.<br>", 
+			"닫힌 국회의 문을 열어<br> 평등의 약속, 차별금지법<br> 새로운 날들을 열어요.",
 		]
 	}
 });
@@ -201,11 +184,6 @@ var challengeSearch = new Vue({
 			"<span class='b'>그럼요!</span> 차별금지법 제정에 힘을 모으려는 수많은 사람들이 벌써 챌린지에 참여하고 있답니다. 🚪🏃‍♀️🏃🏃‍♂️<br>여러 소셜 미디어에서 <span class='u b'>#오프닝챌린지 #차별금지법바로지금</span> 해시태그를 통해 여러분과 함께 릴레이에 참여한 사람들의 모습을 살펴보세요."
 		],
 		buttons: [
-			// { buttonName: 'Instagram', 	buttonClass: "colour-instagram border-instagram", 	buttonURL: 'https://www.instagram.com/explore/tags/오프닝챌린지' }, 
-			// { buttonName: 'TikTok',		buttonClass: "colour-tiktok border-tiktok", 		buttonURL: 'https://www.tiktok.com/tag/오프닝챌린지?lang=ko-KR' }, 			
-			// { buttonName: 'Facebook', 	buttonClass: "colour-facebook border-facebook", 	buttonURL: 'https://www.facebook.com/hashtag/오프닝챌린지'}, 
-			// { buttonName: 'Twitter', 	buttonClass: "colour-twitter border-twitter", 		buttonURL: 'https://twitter.com/search?q=%23오프닝챌린지'}, 
-			// { buttonName: 'Youtube', 	buttonClass: "colour-youtube border-youtube", 		buttonURL: 'https://www.youtube.com/hashtag/오프닝챌린지'}, 
 			{ buttonName: 'Instagram', 	buttonClass: "border-instagram", 	buttonURL: 'https://www.instagram.com/explore/tags/오프닝챌린지' }, 
 			{ buttonName: 'TikTok',		buttonClass: "border-tiktok", 		buttonURL: 'https://www.tiktok.com/tag/오프닝챌린지?lang=ko-KR' }, 			
 			{ buttonName: 'Facebook', 	buttonClass: "border-facebook", 	buttonURL: 'https://www.facebook.com/hashtag/오프닝챌린지'}, 
