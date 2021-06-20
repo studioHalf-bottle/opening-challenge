@@ -70,16 +70,23 @@ var musicButton = new Vue({
 
 
 		/* ---------- IE Detection & h2 font polyfill ---------- */
-		var isIE = true;
-		try {
-			var a = new RegExp(/foo/ig.flags);
-			isIE = false;
-		} catch (err) {
-			// agent가 look-behind 기능을 지원하지 않는다면, 위 문법을 사용한
-			// RegExp 객체의 생성이 에러를 던질 것이고, isLookBehindSupported는
-			// 여전히 false일 것입니다.		
+		// var isIE = true;
+		// try {
+		// 	var a = new RegExp(/foo/ig.flags);
+		// 	isIE = false;
+		// } catch (err) {
+		// 	// agent가 look-behind 기능을 지원하지 않는다면, 위 문법을 사용한
+		// 	// RegExp 객체의 생성이 에러를 던질 것이고, isLookBehindSupported는
+		// 	// 여전히 false일 것입니다.		
+		// 	$("body").addClass("ie");
+		// }
+
+		if(document.currentScript === undefined){
+			// IE 에서만 돌아갈 내용
 			$("body").addClass("ie");
-		}
+		  } else {
+			// IE 가 아닐 때 돌아갈 내용
+		  }
 		
 	}
 });
