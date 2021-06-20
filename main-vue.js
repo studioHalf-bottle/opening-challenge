@@ -37,7 +37,7 @@ var musicProp = {
 	'dataSVG': './@asset/img/louder-icon.svg'
 };
 var musicElement = new Audio( musicProp.musicSrc );
-musicElement.autoplay = false;
+musicElement.preload = auto; 
 musicElement.loop = true;
 // musicElement.play();
 
@@ -66,7 +66,7 @@ var musicButton = new Vue({
 			else this.turnOnMusic();
 		}
 	}, 
-	mounted () {
+	mounted: function () {
 		// $('#music-button').tooltip({ trigger: 'manual' });
 		// setTimeout( function() { $('#music-button').tooltip('show'); }, 2000);
 		// setTimeout( function() { $('#music-button').tooltip('hide'); }, 8000);
@@ -97,7 +97,7 @@ var musicButton = new Vue({
 
 var pageHeader = new Vue({
 	el: "#page-header", 
-	data () { return {
+	data: {
 		subTitle: "차별금지법 제정을 위한 #오프닝챌린지",
 		hSvgTexts: [
 			{ id: "artist", 		x: 0, 	y: 64, 	text: "9와 숫자들" }, 
@@ -109,7 +109,7 @@ var pageHeader = new Vue({
 			"Open your mind<br> Open the door<br> 이제 암호를 정하기로 해",
 			"Open your mind<br> 세 번 노크를 하면<br> 활짝 열어주기로"
 		]
-	}}
+	}
 });
 
 
@@ -126,7 +126,7 @@ var musicInfo = new Vue({
 			</a>`
 		}
 	},
-	data () { return {
+	data: {
 		collapseURL: ['youtube-music', 'full-lyrics'],
 
 		hText: "지금 들으시는 노래는<br><span class='hText-bold'><span class='u'>9와 숫자들</span>이 부르는<br> <span class='rufina-stencil'>“Opening”</span></span> 입니다.",
@@ -138,12 +138,12 @@ var musicInfo = new Vue({
 		pTexts_2: [
 			"이 노래는 새로운 세상의 출발점이 될 것입니다. <br>우리가 만들 약속은, 작고 적은 사람들이 더 이상 좌절하지 않는 세상으로 연결되는 활짝 열린 문입니다.",
 		]
-	}}
+	}
 });
 
 var challengeIntro = new Vue({
 	el: "#challenge-intro", 
-	data () { return {
+	data: {
 		hText: "<span class='hText-bold'><span class='u'>#오프닝챌린지</span>로</span><br> 차별금지법 제정을<br> 함께 열어요!",
 		pTexts: [
 			"나를 어떻게 볼까 두려워<br> 나를 닫은 적이 있지 않나요?",
@@ -151,12 +151,12 @@ var challengeIntro = new Vue({
 			"나는 이제 문을 엽니다.<br> 세상의 닫힌 문을 엽니다.<br> 그리고 당신에게 나를 엽니다.", 
 			"평등의 약속, 차별금지법 바로 지금<br> 국회의 닫힌 문을 열어<br> 우리는 약속할 수 있습니다.",
 		]
-	}}
+	}
 });
 
 var challengeManual = new Vue({
 	el: "#challenge-manual", 
-	data () { return {
+	data: {
 		hText: "오호, 어떻게 챌린지하면 되나요?",
 		pTexts: [
 			"<span class='rufina-stencil'>“Opening”</span> 곡의 후렴구인<br> “Open your mind, Open the door” 가사에 맞춰서<br> <span class='b'>무엇이든 여는 모습</span>을 영상으로 찍어주세요.",
@@ -169,8 +169,8 @@ var challengeManual = new Vue({
 					#오프닝챌린지 <br>#차별금지법바로지금</button>`, 
 			"촬영한 영상과 함께 위의 해시태그를 여러분의 소셜미디어에 올려주세요.",
 		]
-	}}, 
-	mounted () {
+	}, 
+	mounted: function () {
 		new ClipboardJS('#hashtag-clipboard');
 		$('#hashtag-clipboard').tooltip({ trigger: 'manual' }).click( function() {
 			var el = this;
@@ -182,7 +182,7 @@ var challengeManual = new Vue({
 
 var challengeExample = new Vue({
 	el: "#challenge-example", 
-	data () { return {
+	data: {
 		hText: "문을… 뭐 어떻게… 열라구요?",
 		pTexts: [
 			"너무 어렵게 생각하지 않으셔도 되어요 🧠🤪 <br>주변의 모든 것이 열릴 수 있는 것이니까요! 🧰💻🚪📖📦🗃🎁🎉",
@@ -194,15 +194,15 @@ var challengeExample = new Vue({
 		// 	{ src: "", annotation: "어노테이션3" },
 		// 	{ src: "", annotation: "어노테이션4" },
 		// ]
-	}}
+	}
 });
 
 var challengeSearch = new Vue({
 	el: "#challenge-search", 
-	data () { return {
+	data: {
 		hText: "으아,<br> 이런 걸 내가<br> 해도 되는 건가ㅠ",
 		pTexts: [
-			"<span class='b'>그럼요!</span> 차별금지법 제정에 힘을 모으려는 수많은 사람들이 벌써 챌린지에 참여하고 있답니다. 🏃‍♀️🏃🏃‍♂️<br>여러 소셜 미디어에서 <span class='u b'>#오프닝챌린지 #차별금지법바로지금</span> 해시태그를 통해 여러분과 함께 릴레이에 참여한 사람들의 모습을 살펴보세요."
+			"<span class='b'>그럼요!</span> 차별금지법 제정에 힘을 모으려는 수많은 사람들이 벌써 챌린지에 참여하고 있답니다. 🚪🏃‍♀️🏃🏃‍♂️<br>여러 소셜 미디어에서 <span class='u b'>#오프닝챌린지 #차별금지법바로지금</span> 해시태그를 통해 여러분과 함께 릴레이에 참여한 사람들의 모습을 살펴보세요."
 		],
 		buttons: [
 			// { buttonName: 'Instagram', 	buttonClass: "colour-instagram border-instagram", 	buttonURL: 'https://www.instagram.com/explore/tags/오프닝챌린지' }, 
@@ -216,12 +216,12 @@ var challengeSearch = new Vue({
 			{ buttonName: 'Twitter', 	buttonClass: "border-twitter", 		buttonURL: 'https://twitter.com/search?q=%23오프닝챌린지'}, 
 			{ buttonName: 'Youtube', 	buttonClass: "border-youtube", 		buttonURL: 'https://www.youtube.com/hashtag/오프닝챌린지'}, 
 		]
-	}}
+	}
 });
 
 var challengeManual = new Vue({
 	el: "#assembly-petition", 
-	data () { return {
+	data: {
 		hText: "맞다, <br><span class='hText-bold'>차별금지법 제정을 위한 국회청원</span>은<br> 잘 되고 있어?",
 		pTexts: [
 			"<span class='b'>성공했어요. 이제는 국회의 시간이에요!</span>",
@@ -234,7 +234,7 @@ var challengeManual = new Vue({
 		buttons: [
 			{ buttonName: '국회로 올라간 차별금지법 청원 상황 보기', 	buttonClass: "", 	buttonURL: 'https://petitions.assembly.go.kr/status/onGoing/C25F4B51E8D2312DE054A0369F40E84E?fbclid=IwAR0bGjkGjlX9nrynwL68sWyrPbJmPB7K7xEwMnIFGD5WkBYdCapCXzlxBAE'}
 		]
-	}}
+	}
 });
 
 // Vue.component('credit-ele', {
@@ -252,7 +252,7 @@ var challengeManual = new Vue({
 
 var pageFooter= new Vue({
 	el: "#page-footer", 
-	data () { return {
+	data: {
 		hText: "<span class='rufina-stencil'>“Opening”</span>과 <span class='u'>#오프닝챌린지</span>를<br> 함께 제안한 분들이에요.",
 		// creditTexts: [
 		// 	{ head: "a1", 	text: "a2", 	href: "a3", 	divClass: "a4" },
@@ -269,5 +269,5 @@ var pageFooter= new Vue({
 			{ class: "col-6 col-md-3", 	text: "<span class='b'>커버 디자인</span><br>봄밤" },
 			{ class: "col-12", 	text: "<span class='b'>기획, 제작</span><br>오름엔터테인먼트 (대표 최인희)<br>차별금지법제정연대<br>프로젝트퀘스천<br>스튜디오 하프-보틀<br>서정민갑, 윤소라" }
 		]
-	}}
+	}
 });

@@ -192,6 +192,7 @@ span.rufina-stencil { font-family: rufina-stencil; }
 	background-color: $colour-equalityGreen; padding: 0; 
 	width: $button-width; height: $button-width; 
 	text-align: right; 
+	z-index: 1000;
 	
 	background-color: $colour-equalityGreen; 
 	border: 2px solid $colour-white; border-radius: calc(#{$button-width} / 2); 
