@@ -360,7 +360,7 @@ span.rufina-stencil { font-family: rufina-stencil; }
 
 /* ---------- assembly-petition DIV ---------- */
 
-#assembly-petition button {
+#assembly-petition .btn {
 	font-weight: 700; border-width: 3px; border-style: solid; border-radius: calc(2.25em/2 + 3px); color: $colour-white; background-color: transparent; 
 	margin-top: 1em;
 	border: 3px solid $colour-5; 

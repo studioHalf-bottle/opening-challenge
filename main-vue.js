@@ -227,7 +227,7 @@ var challengeManual = new Vue({
 var pageFooter= new Vue({
 	el: "#page-footer", 
 	data: {
-		hText: "<span class='rufina-stencil hText-bold colour-3'>“Opening”</span>과 <span class='u hText-bold colour-5'>#오프닝챌린지</span>를<br> 함께 제안한 분들이에요.",
+		hText: "<span class='rufina-stencil hText-bold colour-3'>“Opening”</span>과 <span class='u hText-bold colour-6'>#오프닝챌린지</span>를<br> 함께 제안한 분들이에요.",
 		// creditTexts: [
 		// 	{ head: "a1", 	text: "a2", 	href: "a3", 	divClass: "a4" },
 		// 	{ head: "b1", 	text: "b2", 	href: "b3", 	divClass: "b4" },

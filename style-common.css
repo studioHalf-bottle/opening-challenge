@@ -372,7 +372,7 @@ span.rufina-stencil {
     border-color: #1579ef; }
 
 /* ---------- assembly-petition DIV ---------- */
-#assembly-petition button {
+#assembly-petition .btn {
   font-weight: 700;
   border-width: 3px;
   border-style: solid;
@@ -381,7 +381,7 @@ span.rufina-stencil {
   background-color: transparent;
   margin-top: 1em;
   border: 3px solid #f2cf37; }
-  #assembly-petition button:hover {
+  #assembly-petition .btn:hover {
     color: #1579ef;
     border-color: #1579ef; }
 
