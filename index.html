@@ -231,7 +231,7 @@
 			<div id="assembly-petition">
 				<h2 v-html="hText"></h2>
 				<p v-for="(pText, index) in pTexts" v-html="pText"></p>
-				<a v-for="(button, index) in buttons" role="button" class="btn" v-bind:href="button.buttonURL" v-bind:class="button.buttonClass">{{ button.buttonName }} →</button>
+				<a v-for="(button, index) in buttons" role="button" class="btn" v-bind:href="button.buttonURL" v-bind:class="button.buttonClass" target="_blank">{{ button.buttonName }} →</button>
 			</div>
 		</div>
 
