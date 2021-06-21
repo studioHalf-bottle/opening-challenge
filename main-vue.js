@@ -46,15 +46,15 @@ var musicButton = new Vue({
 		/* ---------- background video: width choosing + sticky polyfill ---------- */
 
 		if (window.matchMedia("(min-width: 992px)").matches) {
-			$("#background-video").append("<source src='./@asset/video/Opening-MV-official-16by9.mp4' type='video/mp4'>");
+			$("#background-video").append("<source src='./@asset/video/Opening-MV-official-16by9.webm' type='video/webm'><source src='./@asset/video/Opening-MV-official-16by9.mp4' type='video/mp4'>");
 			// $("#background-video-1by1.9, #background-video-1by1").remove();
 		} 
 		else if (window.matchMedia("(min-width: 768px)").matches) {
-			$("#background-video").append("<source src='./@asset/video/Opening-MV-official-1by1.mp4' type='video/mp4'>");
+			$("#background-video").append("<source src='./@asset/video/Opening-MV-official-1by1.webm' type='video/webm'><source src='./@asset/video/Opening-MV-official-1by1.mp4' type='video/mp4'>");
 			// $("#background-video-1by1.9, #background-video-16by9").remove();
 		}
 		else {
-			$("#background-video").append("<source src='./@asset/video/Opening-MV-official-1by1.9.mp4' type='video/mp4'>");
+			$("#background-video").append("<source src='./@asset/video/Opening-MV-official-1by1.9.webm' type='video/webm'><source src='./@asset/video/Opening-MV-official-1by1.9.mp4' type='video/mp4'>");
 			// $("#background-video-1by1, #background-video-16by9").remove();
 		}
 		
