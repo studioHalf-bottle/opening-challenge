@@ -75,6 +75,7 @@ $colour-h2-ie: #dddddd;
 .colour-background-equalityGreen { background-color: $colour-equalityGreen; }
 .colour-1 { color: $colour-1; }
 .colour-3 { color: $colour-3; }
+.colour-4 { color: $colour-4; }
 .colour-5 { color: $colour-5; }
 .colour-6 { color: $colour-6; }
 
@@ -317,6 +318,14 @@ span.rufina-stencil { font-family: rufina-stencil; }
 	a.colour-youtube { 
 		color: $colour-youtube; 
 		&:hover { color: $colour-youtube; } 
+	}
+	a.colour-equalityGreen { 
+		color: $colour-equalityGreen; 
+		&:hover { color: $colour-equalityGreen; } 
+	}
+	a.colour-4 { 
+		color: $colour-4; 
+		&:hover { color: $colour-4; } 
 	}
 
 	div.collapse, div.collapsing { border-left: 1px solid $colour-text; padding-left: 1em; margin-left: calc(0.5em - 1px); margin-bottom: 2em; }

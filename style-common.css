@@ -37,6 +37,9 @@
 .colour-3 {
   color: #f5783c; }
 
+.colour-4 {
+  color: #28e3f6; }
+
 .colour-5 {
   color: #f2cf37; }
 
@@ -319,6 +322,16 @@ span.rufina-stencil {
   color: #FE1212; }
   #music-info a.colour-youtube:hover {
     color: #FE1212; }
+
+#music-info a.colour-equalityGreen {
+  color: #2FC516; }
+  #music-info a.colour-equalityGreen:hover {
+    color: #2FC516; }
+
+#music-info a.colour-4 {
+  color: #28e3f6; }
+  #music-info a.colour-4:hover {
+    color: #28e3f6; }
 
 #music-info div.collapse, #music-info div.collapsing {
   border-left: 1px solid #ffffff;
